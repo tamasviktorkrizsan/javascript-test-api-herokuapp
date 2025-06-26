@@ -1,7 +1,6 @@
 {
   "name": "module8",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "mocha --exit"
@@ -11,10 +10,7 @@
   "description": "",
   "devDependencies": {
     "mocha": "^11.7.1",
-    "supertest": "^7.1.1"
-  },
-  "dependencies": {
-    "@dotenvx/dotenvx": "^1.45.1",
-    "express": "^5.1.0"
+    "supertest": "^7.1.1",
+    "@dotenvx/dotenvx": "^1.45.1"
   }
 }
