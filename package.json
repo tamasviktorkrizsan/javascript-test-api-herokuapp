@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "format": "prettier . --write"
+
   },
   "author": "Tamás Krizsán",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.45.1",
     "mocha": "^11.7.1",
-    "supertest": "^7.1.1",
-    "@dotenvx/dotenvx": "^1.45.1"
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.1"
   }
 }

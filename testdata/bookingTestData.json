@@ -1,12 +1,5 @@
 {
 
-  "credentials": { 
-
-    "username" : "admin",
-    "password" : "password123"
-
-  },  
-
   "originalBookingData": {                           
     "firstname" : "John",
     "lastname" : "Caldwell",
