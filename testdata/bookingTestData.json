@@ -1,29 +1,25 @@
 {
-
-  "originalBookingData": {                           
-    "firstname" : "John",
-    "lastname" : "Caldwell",
-    "totalprice" : 111,
-    "depositpaid" : true,
-    "bookingdates" : {
-        "checkin" : "2018-01-01",
-        "checkout" : "2019-01-01"
+  "originalBookingData": {
+    "firstname": "John",
+    "lastname": "Caldwell",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
     },
-    "additionalneeds" : "Breakfast"
+    "additionalneeds": "Breakfast"
+  },
+
+  "updatedBookingData": {
+    "firstname": "Johnny",
+    "lastname": "Coldwell",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-02",
+      "checkout": "2019-01-02"
     },
-
-    "updatedBookingData": {                 
-    
-    "firstname" : "Johnny",
-    "lastname" : "Coldwell",
-    "totalprice" : 111,
-    "depositpaid" : true,
-    "bookingdates" : {
-        "checkin" : "2018-01-02",
-        "checkout" : "2019-01-02"
-    },
-    "additionalneeds" : "Lunch"
-
-    }
-
+    "additionalneeds": "Lunch"
+  }
 }

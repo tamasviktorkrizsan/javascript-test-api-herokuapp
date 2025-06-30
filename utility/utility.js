@@ -1,12 +1,11 @@
 import request from 'supertest';
 
-export function createToken(username,password){
+export function createToken(username, password) {
+  let credentials = {};
 
-    let credentials = {};
+  credentials.username = username;
 
-    credentials.username = username;
-
-    credentials.password = password;
+  credentials.password = password;
 
   request(process.env.URL)
     .post('/auth')
@@ -14,43 +13,26 @@ export function createToken(username,password){
     .send(credentials)
     .expect(200)
     .expect('Content-Type', /json/)
-    .end( async (err, res) => {
-              
+    .end(async (err, res) => {
       if (err) {
         return err;
+      } else {
+        return (bookingToken = await res.body.token);
       }
-
-      else {
-
-
-   return bookingToken = await res.body.token
-
-              
-      }
-            
-      });
-
-
+    });
 }
 
-export function createBooking(data){
-
-request(process.env.URL)
-      .post('/booking')
-      .send(data.originalBookingData)
-      .set('Accept', 'application/json')
-      .expect(200)
-      .end(async (err, res) => {
-        if (err) {
-          return err;
-        }
-
-        else {
-
-          return bookingId = await res.body.bookingid;
-        
-        }         
-      
-      });
-
+export function createBooking(data) {
+  request(process.env.URL)
+    .post('/booking')
+    .send(data.originalBookingData)
+    .set('Accept', 'application/json')
+    .expect(200)
+    .end(async (err, res) => {
+      if (err) {
+        return err;
+      } else {
+        return (bookingId = await res.body.bookingid);
+      }
+    });
 }
