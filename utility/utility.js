@@ -1,13 +1,13 @@
 import request from 'supertest';
 
-export function createToken(username, password) {
+export function createToken(url, username, password) {
   let credentials = {};
 
   credentials.username = username;
 
   credentials.password = password;
 
-  request(process.env.URL)
+  request(url)
     .post('/auth')
     .set('Accept', 'application/json')
     .send(credentials)

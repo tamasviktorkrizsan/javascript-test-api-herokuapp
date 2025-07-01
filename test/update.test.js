@@ -9,7 +9,7 @@ describe('Booking API Testing - Update Booking', () => {
   let bookingToken;
 
   beforeEach(async () => {
-    bookingToken = createToken(process.env.USR, process.env.PASSWORD);
+    bookingToken = createToken(process.env.URL, process.env.USR, process.env.PASSWORD);
 
     bookingId = createBooking(testData.originalBookingData);
   });
