@@ -12,9 +12,13 @@ describe('Booking API Testing - Get Booking', () => {
   let bookingToken;
 
   beforeEach(async () => {
-    bookingToken = createToken(process.env.URL, process.env.USR, process.env.PASSWORD);
+    bookingToken = createToken(
+      process.env.URL,
+      process.env.USR,
+      process.env.PASSWORD
+    );
 
-    bookingId = createBooking(testData.originalBookingData);
+    bookingId = createBooking(process.env.URL, testData.originalBookingData);
   });
 
   it('Get created booking by id', () => {

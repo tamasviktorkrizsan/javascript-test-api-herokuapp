@@ -17,13 +17,15 @@ export function createToken(url, username, password) {
       if (err) {
         return err;
       } else {
-        return (bookingToken = await res.body.token);
+        let bookingToken = await res.body.token;
+
+        return bookingToken;
       }
     });
 }
 
-export function createBooking(data) {
-  request(process.env.URL)
+export function createBooking(url, data) {
+  request(url)
     .post('/booking')
     .send(data.originalBookingData)
     .set('Accept', 'application/json')
@@ -32,7 +34,9 @@ export function createBooking(data) {
       if (err) {
         return err;
       } else {
-        return (bookingId = await res.body.bookingid);
+        let bookingId = await res.body.bookingid;
+
+        return bookingId;
       }
     });
 }
