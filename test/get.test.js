@@ -2,6 +2,8 @@ import 'dotenv/config.js';
 
 import request from 'supertest';
 
+import { expect } from 'chai';
+
 import testData from '../testdata/bookingTestData.json' with { type: 'json' };
 
 import { createToken, createBooking } from '../utility/utility.js';
@@ -18,18 +20,18 @@ describe('Booking API Testing - Get Booking', () => {
       process.env.PASSWORD
     );
 
-    bookingId = createBooking(process.env.URL, testData.originalBookingData);
+    bookingId = await createBooking(
+      process.env.URL,
+      testData.originalBookingData
+    );
   });
 
-  it('Get created booking by id', () => {
-    request(process.env.URL)
+  it('Get created booking by id', async function () {
+    const response = await request(process.env.URL)
       .get('/booking/' + bookingId)
-      .set('Accept', 'application/json')
-      .expect('Content-Length', '240')
-      .expect(200)
-      .then((response) => {
-        expect('Server', 'Heroku');
-        expect(res.body).toEqual(testData.originalBookingData);
-      });
+      .set('Accept', 'application/json');
+    expect(response.headers['server']).to.equal('Heroku');
+    expect(response.status).to.equal(200);
+    expect(response.body).to.deep.equal(testData.originalBookingData);
   });
 });

@@ -1,6 +1,6 @@
 {
   "reporterEnabled": "spec, mocha-allure-reporter",
   "mocha-allure-reporter": {
-    "outputDir": "reports"
+    "resultsDir": "reports"
   }
 }

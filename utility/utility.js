@@ -1,42 +1,53 @@
 import request from 'supertest';
 
-export function createToken(url, username, password) {
-  let credentials = {};
+import { expect } from 'chai';
 
-  credentials.username = username;
+export async function createToken(url, username, password) {
+  let credentials = {
+    username,
 
-  credentials.password = password;
+    password,
+  };
 
-  request(url)
+  const response = await request(url)
     .post('/auth')
     .set('Accept', 'application/json')
-    .send(credentials)
-    .expect(200)
-    .expect('Content-Type', /json/)
-    .end(async (err, res) => {
-      if (err) {
-        return err;
-      } else {
-        let bookingToken = await res.body.token;
+    .send(credentials);
 
-        return bookingToken;
-      }
-    });
+  return response.body.token;
 }
 
-export function createBooking(url, data) {
+export async function createBooking(url, data) {
+  const response = await request(url)
+    .post('/booking')
+    .set('Accept', 'application/json')
+    .send(data);
+
+  return response.body.bookingid;
+}
+
+/* 
+request(process.env.URL)
+      .post('/booking')
+      .set('Accept', 'application/json')
+      .send(testData.originalBookingData)
+      .expect('Server', 'Heroku')
+      .expect(typeof body.bookingId).to.be.equal('number')
+      .expect(200, done);
+ */
+
+/* 
+  console.log(url);
+
+  console.log(data);
+  
   request(url)
     .post('/booking')
-    .send(data.originalBookingData)
     .set('Accept', 'application/json')
+    .send(data)
     .expect(200)
-    .end(async (err, res) => {
-      if (err) {
-        return err;
-      } else {
-        let bookingId = await res.body.bookingid;
+    .expect(function(res){
+        
+      let bookingId = res.body.bookingid;
 
-        return bookingId;
-      }
-    });
-}
+      return bookingId; */
