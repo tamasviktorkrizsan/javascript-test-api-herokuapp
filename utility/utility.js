@@ -26,28 +26,3 @@ export async function createBooking(url, data) {
   return response.body.bookingid;
 }
 
-/* 
-request(process.env.URL)
-      .post('/booking')
-      .set('Accept', 'application/json')
-      .send(testData.originalBookingData)
-      .expect('Server', 'Heroku')
-      .expect(typeof body.bookingId).to.be.equal('number')
-      .expect(200, done);
- */
-
-/* 
-  console.log(url);
-
-  console.log(data);
-  
-  request(url)
-    .post('/booking')
-    .set('Accept', 'application/json')
-    .send(data)
-    .expect(200)
-    .expect(function(res){
-        
-      let bookingId = res.body.bookingid;
-
-      return bookingId; */
