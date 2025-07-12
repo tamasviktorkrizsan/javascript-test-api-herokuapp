@@ -18,7 +18,14 @@ describe('Booking API Testing - Delete Booking', () => {
       process.env.URL,
       process.env.USR,
       process.env.PASSWORD
+
     );
+
+
+    console.log(process.env.URL);
+    console.log(process.env.USR);
+    console.log(process.env.PASSWORD);
+
 
     bookingId = await createBooking(
       process.env.URL,
