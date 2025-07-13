@@ -1,11 +1,8 @@
 import request from 'supertest';
 
-import { expect } from 'chai';
-
 export async function createToken(url, username, password) {
   let credentials = {
     username,
-
     password,
   };
 
@@ -25,4 +22,3 @@ export async function createBooking(url, data) {
 
   return response.body.bookingid;
 }
-
